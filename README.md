@@ -1,4 +1,4 @@
-# Zoox backend
+# Glovo backend
 
 > A node backend proposed by Glovo.
 
