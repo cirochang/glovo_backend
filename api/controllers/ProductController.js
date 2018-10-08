@@ -27,10 +27,20 @@ exports.show_prices = async (req, res) => {
       moneeda.getPrices('BTX', req.params.productName),
       moneeda.getPrices('BFX', req.params.productName),
     ]);
-    const BNB = (responseBNB.status === 200) ? responseBNB.data : null;
-    const BTX = (responseBTX.status === 200) ? responseBTX.data : null;
-    const BFX = (responseBFX.status === 200) ? responseBFX.data : null;
-    const productPrices = { BNB, BTX, BFX };
+    const productPrices = [
+      {
+        exchange: 'BNB',
+        price: responseBNB.data.price,
+      },
+      {
+        exchange: 'BTX',
+        price: responseBTX.data.price,
+      },
+      {
+        exchange: 'BFX',
+        price: responseBFX.data.price,
+      },
+    ];
     return res.json(productPrices);
   } catch (e) {
     return console.error(e);
