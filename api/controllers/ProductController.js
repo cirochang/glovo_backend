@@ -17,8 +17,7 @@ exports.show_all = async (req, res) => {
       findProdInEx(productBNB, responseBFX.data));
     return res.json(productsCommon);
   } catch (err) {
-    logger.error(err);
-    throw err;
+    return logger.error(err);
   }
 };
 
@@ -45,7 +44,6 @@ exports.show_prices = async (req, res) => {
     ];
     return res.json(productPrices);
   } catch (err) {
-    logger.error(err);
-    throw err;
+    return logger.error(err);
   }
 };
